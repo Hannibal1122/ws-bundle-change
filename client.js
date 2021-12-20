@@ -1,10 +1,10 @@
 const WebSocket = require("ws");
-const myWs = new WebSocket('ws://localhost:9000');
-const Format = require("./core/format").Format;
-const Sender = require("./core/info").Sender;
-
-const sender = new Sender(myWs);
+const fs = require('fs');
 let config = JSON.parse(fs.readFileSync("client.config.json", "utf8"));
+
+const myWs = new WebSocket(`ws://${ config.host }:${ config.port }`);
+const Sender = require("./core/info").Sender;
+const sender = new Sender(myWs);
 
 let guid;
 myWs.onopen = function () {
@@ -18,7 +18,7 @@ myWs.onmessage = function (message) {
                 guid = jsonMessage.guid;
                 break;
             case "change-bundle":
-                fs.writeFileSync(config[jsonMessage.bundleName], jsonMessage.bundle); //JSON.stringify(jsonMessage.bundle, null, '\t')
+                fs.writeFileSync(config.rewrite[jsonMessage.bundleName], jsonMessage.bundle); //JSON.stringify(jsonMessage.bundle, null, '\t')
                 break;
             default:
                 console.log('Неизвестная команда');

@@ -1,3 +1,7 @@
 {
-    "pit_dispatcher_v2": "D:/Projects/pit/vist_pit/static/pit_dispatcher_v2/config/webpack-stats-dev.json"
+    "host": "192.168.0.102",
+    "port": "9000",
+    "rewrite": {
+        "pit_dispatcher_v2": "D:/Projects/pit/vist_pit/static/pit_dispatcher_v2/config/webpack-stats-dev.json"
+    }
 }

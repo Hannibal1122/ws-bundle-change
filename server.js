@@ -3,9 +3,8 @@ const fs = require('fs');
 const Format = require("./core/format").Format;
 const Sender = require("./core/info").Sender;
 
-
 let config = JSON.parse(fs.readFileSync("server.config.json", "utf8"));
-const wsServer = new WebSocket.Server({ port: 9000 });
+const wsServer = new WebSocket.Server({ host: config.host, port: config.port });
 wsServer.on('connection', onConnect);
 
 let allUsers = {};
@@ -40,9 +39,9 @@ function onConnect(wsClient)
 }
 
 
-for(let key in config)
+for(let key in config.watch)
 {
-    const watchFilePath = config[key];
+    const watchFilePath = config.watch[key];
     fs.watchFile(watchFilePath, (curr, prev) => {
         console.log(`[${ key }]`, `${ watchFilePath } file Changed`);
         for(let guid in allUsers) {

@@ -1,3 +1,7 @@
 {
-    "pit_dispatcher_v2": "/Users/Mikhail/Projects/pit/vist_pit/static/webpack_pit_dispatcher_v2/config/webpack-stats-dev.json"
+    "host": "192.168.0.102",
+    "port": "9000",
+    "watch": {
+        "pit_dispatcher_v2": "/Users/Mikhail/Projects/pit/vist_pit/static/webpack_pit_dispatcher_v2/config/webpack-stats-dev.json"
+    }
 }
