@@ -4,6 +4,7 @@ const Format = require("./core/format").Format;
 const Sender = require("./core/info").Sender;
 
 
+let config = JSON.parse(fs.readFileSync("server.config.json", "utf8"));
 const wsServer = new WebSocket.Server({ port: 9000 });
 wsServer.on('connection', onConnect);
 
@@ -39,14 +40,15 @@ function onConnect(wsClient)
 }
 
 
-const watchFilePath = '/Users/Mikhail/Projects/pit/vist_pit/static/webpack_pit_dispatcher_v2/config/webpack-stats-dev.json';
-console.log(`Watching for file changes on ${ watchFilePath }`);
-
-fs.watchFile(watchFilePath, (curr, prev) => {
-    console.log(`${ watchFilePath } file Changed`);
-    for(let guid in allUsers) {
-        allUsers[guid].send({ action: "change-bundle", bundle: fs.readFileSync(watchFilePath, "utf8") });
-    }
-});
+for(let key in config)
+{
+    const watchFilePath = config[key];
+    fs.watchFile(watchFilePath, (curr, prev) => {
+        console.log(`[${ key }]`, `${ watchFilePath } file Changed`);
+        for(let guid in allUsers) {
+            allUsers[guid].send({ action: "change-bundle", bundleName: key, bundle: fs.readFileSync(watchFilePath, "utf8") });
+        }
+    });
+}
 
 console.log('Сервер запущен на 9000 порту');
