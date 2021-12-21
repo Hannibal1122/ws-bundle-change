@@ -13,7 +13,7 @@ myWs.onopen = function () {
 myWs.onmessage = function (message) {
     try {
         const jsonMessage = JSON.parse(message.data);
-        switch (jsonMessage.action) {
+        switch(jsonMessage.action) {
             case "user-register":
                 guid = jsonMessage.guid;
                 break;
@@ -24,7 +24,7 @@ myWs.onmessage = function (message) {
                 console.log('Неизвестная команда');
                 break;
         }
-    } catch (error) {
+    } catch(error) {
         console.log('Ошибка', error);
     }
 };

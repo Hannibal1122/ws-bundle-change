@@ -24,15 +24,15 @@ function onConnect(wsClient)
     wsClient.on('message', function(message) {
         try {
             const jsonMessage = JSON.parse(message);
-            switch (jsonMessage.action) {
+            switch(jsonMessage.action) {
                 case "user-connect":
-                    console.log("[WS-Bundle-Change]", "Добавлен новый клиент!")
+                    console.log("[WS-Bundle-Change]", "Добавлен новый клиент!");
                 break;
                 default:
-                    console.log('Неизвестная команда');
+                    console.log("[WS-Bundle-Change]", "Неизвестная команда!");
                     break;
             }
-        } catch (error) {
+        } catch(error) {
             console.log('Ошибка', error);
         }
     });
@@ -50,4 +50,4 @@ for(let key in config.watch)
     });
 }
 
-console.log('Сервер запущен на 9000 порту');
+console.log("[WS-Bundle-Change]", `Server start ${ config.host }:${ config.port }!`)
