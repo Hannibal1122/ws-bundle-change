@@ -16,6 +16,7 @@ myWs.onmessage = function (message) {
         switch(jsonMessage.action) {
             case "user-register":
                 guid = jsonMessage.guid;
+                console.log("[WS-Bundle-Change]", `User register ${ guid }!`);
                 break;
             case "change-bundle":
                 fs.writeFileSync(config.rewrite[jsonMessage.bundleName], jsonMessage.bundle); //JSON.stringify(jsonMessage.bundle, null, '\t')
