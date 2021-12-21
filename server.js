@@ -26,10 +26,10 @@ function onConnect(wsClient)
             const jsonMessage = JSON.parse(message);
             switch(jsonMessage.action) {
                 case "user-connect":
-                    console.log("[WS-Bundle-Change]", "Добавлен новый клиент!");
+                    console.log("[WS-Bundle-Change]", `New user register ${ guid }!`);
                 break;
                 default:
-                    console.log("[WS-Bundle-Change]", "Неизвестная команда!");
+                    console.log("[WS-Bundle-Change]", "Undefined command!");
                     break;
             }
         } catch(error) {

@@ -22,7 +22,7 @@ myWs.onmessage = function (message) {
                 fs.writeFileSync(config.rewrite[jsonMessage.bundleName], jsonMessage.bundle); //JSON.stringify(jsonMessage.bundle, null, '\t')
                 break;
             default:
-                console.log('Неизвестная команда');
+                console.log("[WS-Bundle-Change]", "Undefined command!");
                 break;
         }
     } catch(error) {
