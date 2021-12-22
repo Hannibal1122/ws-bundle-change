@@ -3,6 +3,10 @@
     "port": "9000",
     "watch": {
         "pit_dispatcher_v2": "/Users/Mikhail/Projects/pit/vist_pit/static/webpack_pit_dispatcher_v2/config/webpack-stats-dev.json",
-        "new_map": "/Users/Mikhail/Projects/alrosa/vist_alrosa/static/webpack_map/config/webpack-stats-dev.json"
+        "truck_status_panel_merah": "/Users/Mikhail/Projects/pit/vist_pit/static/webpack_truck_status_panel_merah/config/webpack-stats-dev.json",
+        "truck_status_panel_merah_json": "/Users/Mikhail/Projects/pit/vist_pit/static/webpack_truck_status_panel_merah/assets/data/data.json",
+        "vehicle_camera_photo": "/Users/Mikhail/Projects/pit/vist_fatic/static/webpack_vehicle_camera_photo/config/webpack-stats-dev.json",
+        "new_map": "/Users/Mikhail/Projects/alrosa/vist_alrosa/static/webpack_map/config/webpack-stats-dev.json",
+        "new_map_json": "/Users/Mikhail/Projects/alrosa/vist_alrosa/static/webpack_map/plugin.config.json"
     }
 }

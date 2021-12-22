@@ -2,6 +2,7 @@ const WebSocket = require('ws');
 const fs = require('fs');
 const Format = require("./core/format").Format;
 const Sender = require("./core/info").Sender;
+const Log = require("./core/log").Log;
 
 let config = JSON.parse(fs.readFileSync("server.config.json", "utf8"));
 const wsServer = new WebSocket.Server({ host: config.host, port: config.port });
@@ -26,10 +27,10 @@ function onConnect(wsClient)
             const jsonMessage = JSON.parse(message);
             switch(jsonMessage.action) {
                 case "user-connect":
-                    console.log("[WS-Bundle-Change]", `New user register ${ guid }!`);
+                    Log.trace(`New user register ${ guid }!`);
                 break;
                 default:
-                    console.log("[WS-Bundle-Change]", "Undefined command!");
+                    Log.trace("Undefined command!");
                     break;
             }
         } catch(error) {
@@ -43,11 +44,11 @@ for(let key in config.watch)
 {
     const watchFilePath = config.watch[key];
     fs.watchFile(watchFilePath, (curr, prev) => {
-        console.log(`[${ key }]`, `${ watchFilePath } file Changed`);
+        Log.trace(`${ key } file changed!`);
         for(let guid in allUsers) {
             allUsers[guid].send({ action: "change-bundle", bundleName: key, bundle: fs.readFileSync(watchFilePath, "utf8") });
         }
     });
 }
 
-console.log("[WS-Bundle-Change]", `Server start ${ config.host }:${ config.port }!`)
+Log.trace(`Server start ${ config.host }:${ config.port }!`);
