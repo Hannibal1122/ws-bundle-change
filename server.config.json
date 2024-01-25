@@ -1,12 +1,43 @@
 {
-    "host": "192.168.0.102",
+    "host": "192.168.0.103",
     "port": "9000",
     "watch": {
         "pit_dispatcher_v2": "/Users/Mikhail/Projects/pit/vist_pit/static/webpack_pit_dispatcher_v2/config/webpack-stats-dev.json",
+        "pit_dispatcher_data": "/Users/Mikhail/Projects/pit/vist_pit/static/webpack_pit_dispatcher_v2/assets/data/_data.json",
+        "pit_dispatcher_dictionary": "/Users/Mikhail/Projects/pit/vist_pit/static/webpack_pit_dispatcher_v2/assets/data/_dictionary.json",
+        "pit_truck_status": "/Users/Mikhail/Projects/pit/vist_pit/static/webpack_pit_truck_status/config/webpack-stats-dev.json",
         "truck_status_panel_merah": "/Users/Mikhail/Projects/pit/vist_pit/static/webpack_truck_status_panel_merah/config/webpack-stats-dev.json",
+        "ore": "/Users/Mikhail/Projects/pit/vist_pit/static/webpack_ore/config/webpack-stats-dev.json",
         "truck_status_panel_merah_json": "/Users/Mikhail/Projects/pit/vist_pit/static/webpack_truck_status_panel_merah/assets/data/data.json",
-        "vehicle_camera_photo": "/Users/Mikhail/Projects/pit/vist_fatic/static/webpack_vehicle_camera_photo/config/webpack-stats-dev.json",
-        "new_map": "/Users/Mikhail/Projects/alrosa/vist_alrosa/static/webpack_map/config/webpack-stats-dev.json",
-        "new_map_json": "/Users/Mikhail/Projects/alrosa/vist_alrosa/static/webpack_map/plugin.config.json"
+        "vehicle_camera_photo": "/Users/Mikhail/Projects/fatic/vist_fatic/static/webpack_vehicle_camera_photo/config/webpack-stats-dev.json",
+        "approv_truck_waylist": "/Users/Mikhail/Projects/pit/vist_pit/static/webpack_approv_truck_waylist/config/webpack-stats-dev.json",
+        "pit_dash_truck_fact": "/Users/Mikhail/Projects/pit/vist_pit/static/webpack_pit_dash_truck_fact/config/webpack-stats-dev.json",
+        "pit_dash_shovel_fact": "/Users/Mikhail/Projects/pit/vist_pit/static/webpack_pit_dash_shovel_fact/config/webpack-stats-dev.json",
+        "pit_idle_report": "/Users/Mikhail/Projects/pit/vist_pit/static/webpack_idle_report/config/webpack-stats-dev.json",
+        "surface_contours_work": "/Users/Mikhail/Projects/pit/vist_pit/static/webpack_surface_contours_work/config/webpack-stats-dev.json",
+        "chat": "/Users/Mikhail/Projects/v12_ui/v12_ui/static/webpack_chat/config/webpack-stats-dev.json",
+        "new_map": "/Users/Mikhail/Projects/v12_ui/v12_ui/static/webpack_map/config/webpack-stats-dev.json",
+        "new_map_json": "/Users/Mikhail/Projects/v12_ui/v12_ui/static/webpack_map/plugin.config.json",
+        "work_order": "/Users/mikhail/Projects/underground/vist_underground/static/webpack_work_order/config/webpack-stats-dev.json",
+        "vehicle_parts": "/Users/mikhail/Projects/diag/vist_diag/static/webpack_vehicle_parts/config/webpack-stats-dev.json",
+        "vehicle_parts_and_units_config": "/Users/mikhail/Projects/diag/vist_diag/static/webpack_vehicle_parts_and_units_config/config/webpack-stats-dev.json",
+        "new_front": "/Users/mikhail/Projects/core/vist_core/static/webpack_sdo_plan_fact/config/webpack-stats-dev.json",
+        "v12_domain": "/Users/mikhail/Projects/v12_ui/v12_ui/static/webpack_v12_domain/config/webpack-stats-dev.json",
+        "mega_dashboard": "/Users/mikhail/Projects/core/vist_core/static/webpack_mega_dashboard/config/webpack-stats-dev.json",
+        "mega_dashboard_edit": "/Users/mikhail/Projects/core/vist_core/static/webpack_mega_dashboard_edit/config/webpack-stats-dev.json",
+        "v12_ui": "/Users/mikhail/Projects/v12_ui/v12_ui/static/webpack_v12_ui/config/webpack-stats-dev.json",
+        "templates": "/Users/mikhail/Projects/core/vist_core/static/webpack_mega_dashboard/src/assets/templates.json",
+        "templates.gz": "/Users/mikhail/Projects/core/vist_core/static/webpack_mega_dashboard/src/assets/templates.json.gz",
+        "sbu_fact_entry": "/Users/mikhail/Projects/underground/vist_underground/static/webpack_sbu_fact_entry/config/webpack-stats-dev.json",
+        "underground": "/Users/mikhail/Projects/underground/vist_underground/static/webpack_underground/config/webpack-stats-dev.json",
+        "overall_score_report": "/Users/mikhail/Projects/underground/vist_underground/static/webpack_overall_score_report/config/webpack-stats-dev.json",
+        "ore_pass": "/Users/mikhail/Projects/underground/vist_underground/static/webpack_ore_pass/config/webpack-stats-dev.json",
+        "agreement_ore_form": "/Users/Mikhail/Projects/pit/vist_pit/static/webpack_pit_agreement_ore_form/config/webpack-stats-dev.json",
+        "datagrid": "/Users/Mikhail/Projects/core/vist_core/static/webpack_datagrid/config/webpack-stats-dev.json",
+        "pit_surface_contour_plugin.js": "/Users/mikhail/Projects/pit/vist_pit/static/pit/js/map/pit_surface_contour_plugin.js",
+        "pit_surface_contour_plugin.jinja": "/Users/mikhail/Projects/pit/vist_pit/templates/pit/plugins/map/pit_surface_contour_plugin.jinja"
+    },
+    "watchFolder": {
+        "adviser_speed_control": "/Users/mikhail/Projects/v12_ui/v12_ui/static/webpack_v12_domain/src/app/functionalities/adviser/pages/speed-control"
     }
 }
