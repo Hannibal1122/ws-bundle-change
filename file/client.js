@@ -1,30 +1,37 @@
-const net = require('net');
+const WebSocket = require('ws');
 const fs = require('fs');
 const path = require('path');
+const Sender = require('../core/info').Sender;
+const Log = require('../core/log').Log;
 
 const config = require('./server-config.json');
+const myWs = new WebSocket(`ws://${config.host}:${config.port}`);
+const sender = new Sender(myWs);
 
-const server = net.createServer((socket) => {
-    console.log('Клиент подключился');
+let guid;
+myWs.onopen = function () {
+    sender.send({ action: 'user-connect', guid });
+};
 
-    socket.on('data', (data) => {
-        const message = JSON.parse(data.toString());
-        const folderPath = config.watch[message.folder];
-
-        if (!folderPath) {
-            console.error(`Ошибка: Папка ${message.folder} не найдена в конфиге!`);
-            return;
+myWs.onmessage = function (message) {
+    try {
+        const jsonMessage = JSON.parse(message.data);
+        switch (jsonMessage.action) {
+            case 'user-register':
+                guid = jsonMessage.guid;
+                Log.trace(`User register ${guid}!`);
+                break;
+            case 'change-bundle':
+                Log.trace(`${jsonMessage.bundleName} bundle changed!`);
+                const folderPath = config.rewrite[jsonMessage.bundleName];
+                const filePath = path.join(folderPath, message.filename);
+                fs.writeFileSync(filePath, Buffer.from(jsonMessage.bundle, 'base64'));
+                break;
+            default:
+                Log.trace(`Undefined command!`);
+                break;
         }
-
-        const filePath = path.join(folderPath, message.filename);
-        fs.mkdirSync(path.dirname(filePath), { recursive: true }); // Создаём вложенные папки
-        fs.writeFileSync(filePath, Buffer.from(message.content, 'base64'));
-        console.log(`Файл ${message.filename} обновлён в ${folderPath}`);
-    });
-
-    socket.on('end', () => console.log('Клиент отключился'));
-});
-
-server.listen(config.port, config.host, () => {
-    console.log(`Сервер слушает ${config.host}:${config.port}`);
-});
+    } catch (error) {
+        Log.trace(error);
+    }
+};
