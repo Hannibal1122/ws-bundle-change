@@ -40,24 +40,25 @@ function onConnect(wsClient) {
     });
 }
 
-const sendFile = (filePath, baseDir) => {
+const sendFile = (filePath, bundleName) => {
     for (let guid in allUsers) {
         allUsers[guid].send({
             action: 'change-bundle',
-            bundleName: baseDir,
+            bundleName,
             filePath,
             filename: path.basename(filePath),
-            bundle: fs.readFileSync(filePath, 'utf8'),
+            bundle: fs.readFileSync(filePath).toString('base64'),
         });
     }
 };
 
 // Обход всех папок в конфиге
-Object.values(config.watch).forEach((folder) => {
+Object.keys(config.watch).forEach((key) => {
+    const folder = config.watch[key];
     chokidar
         .watch(folder, { ignoreInitial: true, persistent: true })
-        .on('change', (filePath) => sendFile(filePath, folder))
-        .on('add', (filePath) => sendFile(filePath, folder));
+        .on('change', (filePath) => sendFile(filePath.replace(folder, ""), key))
+        .on('add', (filePath) => sendFile(filePath.replace(folder, ""), key));
 });
 
 Log.trace(`Server start ${config.host}:${config.port}!`);
