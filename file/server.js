@@ -1,5 +1,6 @@
 const WebSocket = require('ws');
 const fs = require('fs');
+const path = require('path');
 const Format = require('../core/format').Format;
 const Sender = require('../core/info').Sender;
 const Log = require('../core/log').Log;
@@ -45,6 +46,7 @@ const sendFile = (filePath, baseDir) => {
             action: 'change-bundle',
             bundleName: baseDir,
             filePath,
+            filename: path.basename(filePath),
             bundle: fs.readFileSync(filePath, 'utf8'),
         });
     }
