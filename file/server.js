@@ -44,6 +44,7 @@ const sendFile = (filePath, baseDir) => {
         allUsers[guid].send({
             action: 'change-bundle',
             bundleName: baseDir,
+            filePath,
             bundle: fs.readFileSync(filePath, 'utf8'),
         });
     }
