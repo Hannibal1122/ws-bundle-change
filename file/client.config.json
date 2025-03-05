@@ -1,0 +1,8 @@
+{
+    "host": "192.168.0.102",
+    "port": "9000",
+    "rewrite": {
+        "pit_dispatcher_v2": "D:/Projects/pit/vist_pit/static/webpack_pit_dispatcher_v2/config/webpack-stats-dev.json",
+        "new_map": "D:/Projects/alrosa/vist_alrosa/static/webpack_map/config/webpack-stats-dev.json"
+    }
+}

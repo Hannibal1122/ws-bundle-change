@@ -1,0 +1,10 @@
+{
+    "host": "192.168.0.103",
+    "port": "9000",
+    "watch": {
+        "v12_domain": "/Users/mikhail/Projects/v12_ui/v12_ui/static/webpack_v12_domain/config/webpack-stats-dev.json"
+    },
+    "watchFolder": {
+        "adviser": "/Users/mikhail/Projects/v12_ui/v12_ui/static/webpack_v12_domain/src/app/functionalities/adviser"
+    }
+}

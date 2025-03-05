@@ -66,10 +66,12 @@ for (let key in config.watchFolder) {
         .on('add', (path) => console.log(`File ${path} has been added.`))
         .on('change', (path) => {
             for (let guid in allUsers) {
+                const watchFilePath = _path.relative(watchFolderPath, path);
                 allUsers[guid].send({
-                    action: 'change-file',
-                    path: _path.relative(watchFolderPath, path),
-                    bundle: fs.readFileSync(watchFilePath, 'utf8'),
+                    action: 'change-folder',
+                    bundleName: key,
+                    path: watchFilePath,
+                    bundle: fs.readFileSync(path, 'utf8'),
                 });
             }
         })

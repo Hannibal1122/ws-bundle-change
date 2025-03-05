@@ -36,8 +36,5 @@
         "datagrid": "/Users/Mikhail/Projects/core/vist_core/static/webpack_datagrid/config/webpack-stats-dev.json",
         "pit_surface_contour_plugin.js": "/Users/mikhail/Projects/pit/vist_pit/static/pit/js/map/pit_surface_contour_plugin.js",
         "pit_surface_contour_plugin.jinja": "/Users/mikhail/Projects/pit/vist_pit/templates/pit/plugins/map/pit_surface_contour_plugin.jinja"
-    },
-    "watchFolder": {
-        "adviser_speed_control": "/Users/mikhail/Projects/v12_ui/v12_ui/static/webpack_v12_domain/src/app/functionalities/adviser/pages/speed-control"
     }
 }
