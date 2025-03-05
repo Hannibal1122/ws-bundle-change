@@ -4,7 +4,7 @@ const path = require('path');
 const Sender = require('../core/info').Sender;
 const Log = require('../core/log').Log;
 
-const config = require('./server-config.json');
+const config = require('./client.config.json');
 const myWs = new WebSocket(`ws://${config.host}:${config.port}`);
 const sender = new Sender(myWs);
 
