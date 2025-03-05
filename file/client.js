@@ -25,7 +25,7 @@ myWs.onmessage = function (message) {
                 Log.trace(`${jsonMessage.bundleName} bundle changed!`);
                 const folderPath = config.rewrite[jsonMessage.bundleName];
                 const filePath = path.join(folderPath, jsonMessage.filePath);
-                Log.trace(filePath);
+                Log.trace(filePath, jsonMessage);
                 fs.writeFileSync(filePath, Buffer.from(jsonMessage.bundle, 'base64'));
                 break;
             default:
